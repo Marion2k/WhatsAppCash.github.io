@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    background-color: pink;
+    font-family: Arial, sans-serif;
+  }
+
+  .registration-container {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    right: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .confirmation-container {
+    text-align: center;
+    margin-top: 150px;
+  }
+
+  .login-container {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    right: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+
+  .payment-instructions-container {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    right: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+
+  .registration-container label,
+  .login-container label,
+  .payment-instructions-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .registration-container input,
+  .login-container input,
+  .payment-instructions-container input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .registration-container button,
+  .login-container button,
+  .payment-instructions-container button {
+    background-color: pink;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="registration-container">
+  <h2>Registration</h2>
+  <form id="registration-form">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    
+    <label for="fullname">Full Name:</label>
+    <input type="text" id="fullname" name="fullname" required>
+    
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" name="phone" required>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required>
+    
+    <button type="submit">Register</button>
+    
+    <div class="login-link">
+      Have an active account? <a href="#login">Please Login here.</a>
+    </div>
+  </form>
+</div>
+
+<div class="confirmation-container" id="confirmation" style="display: none;">
+  <h2>Pay With MTN</h2>
+  <p>■PAY WITH MTN 
+  </p>
+    <p>■*182*8*1#
+    </p>
+      <p>■ENTER CODE: 391405
+      </p>
+        <p>■ENTER AMOUNT: 3500
+       </p>
+         <p>■ENTER PIN
+         </p>
+           <p>IF DONE CONTACT THIS NUMBER FOR ACTIVATION: +250790689756
+       </p>
+</div>
+
+<div class="login-container" id="login" style="display: none;">
+  <h2>Login</h2>
+  <form id="login-form">
+    <label for="login-username">Username:</label>
+    <input type="text" id="login-username" name="login-username" required>
+      
+    <label for="login-password">Password:</label>
+    <input type="password" id="login-password" name="login-password" required>
+      
+    <button type="submit">Login</button>
+  </form>
+</div>
+
+<div class="payment-instructions-container" id="payment" style="display: none;">
+  <h2>Payment Instructions</h2>
+  <p>If you have already paid, please follow the payment instructions provided by MTN Rwanda to complete the process.</p>
+</div>
+
+<script>
+  document.getElementById("registration-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    document.getElementById("registration-form").style.display = "none";
+    document.getElementById("confirmation").style.display = "block";
+  });
+  
+  document.querySelector(".login-link a").addEventListener("click", function(event) {
+    event.preventDefault();
+    document.getElementById("registration-form").style.display = "none";
+    document.getElementById("login").style.display = "block";
+  });
+  
+  document.getElementById("login-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    document.getElementById("login").style.display = "none";
+    document.getElementById("payment").style.display = "block";
+  });
+</script>
+
+</body>
+</html>
